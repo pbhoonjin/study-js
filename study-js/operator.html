@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>연산자 과제</title>
+</head>
+<body>
+  <p>사칙연산</p>
+  <input type="text" id="inputA">
+  <input type="text" id="inputB">
+  <button type="button" onclick="calInput()">계산</button>
+  <p>BMI 계산</p>
+  <input type="text" id="inputC">
+  <input type="text" id="inputD">
+  <button type="button" onclick="bmiInput()">계산</button>
+  <p>섭씨 계산</p>
+  <input type="text" id="inputE">
+  <button type="button" onclick="tempInput()">계산</button>
+  <p>문자열길이 계산</p>
+  <input type="text" id="inputF">
+  <button type="button" onclick="charInput()">계산</button>
+  <script>
+    function calInput() {
+      const a = Number(document.getElementById('inputA').value);
+      const b = Number(document.getElementById('inputB').value);
+      console.log(typeof a);
+      
+      let str = '';
+      str += a +"+"+ b +"="+ (a+b) + "\n";
+      str += a +"-"+ b +"="+ (a-b) + "\n";
+      str += a +"*"+ b +"="+ (a*b) + "\n";
+      str += a +"/"+ b +"="+ (a/b);
+      console.log(str);
+    }
+    function bmiInput() {
+      const a = Number(document.getElementById('inputC').value);
+      const b = Number(document.getElementById('inputD').value);
+      let str = b/(a*a);
+      console.log(str);
+    }
+    function tempInput() {
+      const a = Number(document.getElementById('inputE').value);
+      let str = (a-32)*5/9;
+      console.log(str);
+    }
+    function charInput() {
+      const a = document.getElementById('inputF').value;
+      console.log(a.length);
+    }
+  </script>
+</body>
+</html>
