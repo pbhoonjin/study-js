@@ -8,38 +8,30 @@
 </head>
 <body>
   <p>짝수 홀수 체크</p>
-  <input type="text" id="inputA">
-  <button type="button">확인</button>
+  <input type="text" id="inputOddEven">
+  <button type="button" id="btnOddEven">확인</button>
   <p>대소문자 체크</p>
-  <input type="text" id="inputB">
-  <button type="button">확인</button>
+  <input type="text" id="inputCase">
+  <button type="button" id="btnCase">확인</button>
   <script>
-    let inputBtn = document.querySelectorAll('button');
-    let inputA = document.getElementById('inputA');
-    inputBtn.forEach(function(item){
-      item.addEventListener('click',function(event){
-        //console.log(item.previousElementSibling);
-        // previousSibling() > Element는 물론 #text와 주석까지 node로 카운트하여 반환
-        // previousElementSibling() > Element만 카운트하여 반환 
-        if(item.previousElementSibling === inputA){
-          numInput();
-        }
-        else {
-          charInput();
-        }
-      });
-    });
-    function numInput() {
-      let inputValue = document.getElementById('inputA').value;
+    let btnOddEven = document.getElementById('btnOddEven');
+    let btnCase = document.getElementById('btnCase');
+    btnOddEven.addEventListener('click', oddEven);
+    btnCase.addEventListener('click', caseLetter);
+    
+    function oddEven() {
+      let inputValue = document.getElementById('inputOddEven').value;
       
       if (Number(inputValue)%2 == 0){
         console.log('짝수 입니다.');
-      }else{
+      }else if (!Number(inputValue)%2 == 0){
         console.log('홀수 입니다.');
+      }else {
+        console.log('숫자를 입력해주세요.');
       }
     }
-    function charInput() {
-      let inputValue = document.getElementById('inputB').value;
+    function caseLetter() {
+      let inputValue = document.getElementById('inputCase').value;
 
       if (inputValue === inputValue.toUpperCase()) {
         console.log("대문자 입니다.");
@@ -47,8 +39,6 @@
         console.log("소문자 입니다.");
       }
     }
-    
-    
   </script>
 </body>
 </html>
