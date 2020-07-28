@@ -8,30 +8,39 @@
 </head>
 <body>
   <p>짝수 홀수 체크</p>
-  <input type="text" id="inputA">
-  <button type="button" onclick="numInput()">확인</button>
+  <input type="text" id="inputOddEven">
+  <button type="button" id="btnOddEven">확인</button>
   <p>대소문자 체크</p>
-  <input type="text" id="inputB">
-  <button type="button" onclick="charInput()">확인</button>
+  <input type="text" id="inputCase">
+  <button type="button" id="btnCase">확인</button>
   <script>
-    function numInput() {
-      const a = document.getElementById('inputA').value;
-      
-      if (Number(a)%2 == 0){
+    let btnOddEven = document.getElementById('btnOddEven');
+    let btnCase = document.getElementById('btnCase');
+    let inputValue = '';
+    btnOddEven.addEventListener('click', oddEven);
+    btnCase.addEventListener('click', caseLetter);
+    
+    function oddEven() {
+      inputValue = document.getElementById('inputOddEven').value;
+      if (Number(inputValue)%2 == 0){
         console.log('짝수 입니다.');
-      }else{
+      }else if (!Number(inputValue)%2 == 0){
         console.log('홀수 입니다.');
+      }else {
+        console.log('숫자를 입력해주세요.');
       }
+      console.log(inputValue);
+      
     }
-    function charInput() {
-      const a = document.getElementById('inputB').value;
-
-      if (a === a.toUpperCase()) {
+    function caseLetter() {
+      inputValue = document.getElementById('inputCase').value;
+      if (inputValue === inputValue.toUpperCase()) {
         console.log("대문자 입니다.");
       }else {
         console.log("소문자 입니다.");
       }
-    }
+    }    
+    // 스코프 체인 개념 이해
   </script>
 </body>
 </html>
