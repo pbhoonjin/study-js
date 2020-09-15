@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="inputNum" value="0">
+  <button type="button" id="btnMinus">-</button>
+  <button type="button" id="btnPlus">+</button>
+  <script>
+    const btnPlus = document.getElementById('btnPlus');
+    const btnMinus = document.getElementById('btnMinus');
+    let inputNum = document.getElementById('inputNum');
+    let num = 0;
+    let maxNum = 10;
+    let minNum = 0;
+    inputNum.value = num;
+    inputNum.addEventListener('keyup', function(e){
+      if(e.keyCode<48 || e.keyCode>57) {
+        console.log('숫자아님');
+        inputNum.value = '';
+      }
+      num = e.target.value;
+    });
+    btnPlus.addEventListener('click', function(){
+      num ++;
+      console.log(num);
+      inputNum.value = num;
+      if (num > maxNum) {
+        alert('최대 갯수는 10개입니다.');
+        inputNum.value = maxNum;
+      }
+    });
+    btnMinus.addEventListener('click', function(){
+      num --;
+      console.log(num);
+      inputNum.value = num;
+      if (num < minNum) {
+        alert('최소 갯수는 0개입니다.');
+        inputNum.value = minNum;
+      }
+    });
+  </script>
+</body>
+</html>
